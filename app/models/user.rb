@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :comment_votes
 
 
-  def self.authenticate(params)
+  def self.authenticate(email, password)
     user = User.find_by_email(params[:email])
     (user && user.password == params[:password]) ? user : nil
   end
