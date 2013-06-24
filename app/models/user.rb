@@ -1,4 +1,6 @@
+require 'bcrypt'
 class User < ActiveRecord::Base
+  attr_accessible :username, :email, :password
   has_many :posts
   has_many :comments
 
