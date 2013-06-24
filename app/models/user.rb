@@ -1,12 +1,10 @@
 class User < ActiveRecord::Base
-
   has_many :posts
   has_many :comments
 
   has_many :post_votes
   has_many :all_posts_by_voter, :through => :post_votes, :source => :voter
   has_many :comment_votes
-
 
   def self.authenticate(email, password)
     user = User.find_by_email(params[:email])
@@ -28,5 +26,4 @@ class User < ActiveRecord::Base
     @user.save!
     @user
   end
-
 end
