@@ -3,9 +3,9 @@ HackerBlues::Application.routes.draw do
 
   resources :posts
 
-  resources :comment_votes, :only => [:create, :update, :show, :destroy]
+  resources :comment_votes, :only => [:create, :destroy]
 
-  resources :post_votes, :only => [:create, :update, :show, :destroy]
+  resources :post_votes, :only => [:create, :destroy]
 
   resources :users
 
