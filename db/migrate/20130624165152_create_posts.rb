@@ -3,14 +3,8 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |p|
       p.string :title
       p.string :url
-      p.references :user
+      p.integer :user_id
       p.timestamps
     end
-  end
-
-  def up
-  end
-
-  def down
   end
 end

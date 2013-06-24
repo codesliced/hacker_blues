@@ -1,16 +1,10 @@
 class CreateCommentVotes < ActiveRecord::Migration
  def change
    create_table :comment_votes do |t|
-     t.references :comment
-     t.references :user
+     t.integer :comment_id
+     t.integer :user_id
      t.integer :vote
      t.timestamps
    end
  end
-
-  def up
-  end
-
-  def down
-  end
 end
