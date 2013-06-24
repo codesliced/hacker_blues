@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   has_many :comment_votes
 
   has_secure_password
+
+  validates :email, :username, :password, :presence => true
+
 end
