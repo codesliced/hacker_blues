@@ -8,7 +8,8 @@ HackerBlues::Application.routes.draw do
   resources :post_votes, :only => [:create, :update, :show, :destroy]
 
   resources :users
-  match 'signup' => 'users#new'
+
+  match '/signup' => 'users#new'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
