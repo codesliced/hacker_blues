@@ -1,0 +1,33 @@
+<div class="all_container">
+  <ul>
+
+    <% @posts.each do |post| %>
+    <li>
+      <div class="first_line_all_posts">
+        <span class="title">
+          <%= link_to post.title, post.url %>
+        </span> | <span id="user">
+          <%= link_to post.author.username, user_path(post.author) %>
+        </span>
+      </div>
+
+      <div class="second_line_all_posts">
+
+        <%= form_for post do |f| %>
+          <%= hidden_field_tag(:vote, "1")  %>
+          <%= hidden_field_tag(:post_id, post.id) %>
+          <span class="upvote">
+            <%= post.post_votes.sum('vote')%> votes
+            <%= f.submit 'Up' %>
+          </span>
+          <span class="text" id="comment_count">
+            <%= link_to post.comments.count, comment_path(post.id) %>comments
+          </span>
+        <% end %>
+
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
