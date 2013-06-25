@@ -10,7 +10,13 @@
 	 <div class='header'>
 	  <div class='nav'>
 	  	<%= link_to "Hacker Blues", :root %>
-	  </div>
+        <% unless session[:user] %>
+          <%= link_to "Logout", logout_path %>
+        <% else %>
+          <%= link_to "Login", login_path %>
+          <%= link_to "Sign up", signup_path %>
+          <% end %>
+    </div>
 	</div>
 
 <%= yield %>
