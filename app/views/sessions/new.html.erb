@@ -1,0 +1,10 @@
+<div class="login_container">
+  <h1>Welcome</h1>
+
+  <%= form_tag('/login', method: "post", :html => { :class => "new_session" }) do %>
+  <div>Username: <%= text_field_tag :username, params[:username] %></div>
+  <div>Password: <%= password_field_tag :password %></div>
+    <%= submit_tag "Login" %>
+    <% end %>
+
+</div>

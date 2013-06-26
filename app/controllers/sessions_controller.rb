@@ -1,17 +1,20 @@
 class SessionsController < ApplicationController
-  def new
-  end
+ def new
+ end
 
-  def create
-    if user = User.authenticate(params[:username], params[:password])
+ def create
+    user = User.find_by_username(params[:username])
+    if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to_root_url
+      redirect_to :root
+    else
+      render :new
     end
   end
 
   def destroy
     reset_session
-    redirect_to_root_url
+    redirect_to :root
   end
 
 end
